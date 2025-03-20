@@ -22,18 +22,18 @@
 - [ ] Add MySQL into the project
 - [ ] Add Redis into the project
 
-### Step 7 (Observability - Dashboards)
+### Step 5 (Observability - Dashboards)
 - [ ] Add Grafana Dashboards
 
-### Step 5 (Observability - Logs)
+### Step 6 (Observability - Logs)
 - [ ] Add Grafana Loki
 - [ ] Integrate into Grafana Dashboards
 
-### Step 6 (Observability - Metrics)
+### Step 7 (Observability - Metrics)
 - [ ] Add Prometheus
 - [ ] Integrate into Grafana Dashboards
 
-### Step 7 (Observability - Tracing)
+### Step 8 (Observability - Tracing)
 - [ ] Add Jaeger (or Zipkin? or other?)
 - [ ] Integrate into Grafana Dashboards
 
