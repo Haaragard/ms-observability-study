@@ -7,8 +7,11 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/carbonphp/carbon-doctrine-types" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/clue/ndjson-react" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/deprecations" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/evenement/evenement" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fidry/cpu-core-counter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/fig/http-message-util" />
@@ -56,7 +59,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/support" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/tappable" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/testing" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/translation" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/utils" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/validation" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/hyperf/watcher" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-mime" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laminas/laminas-stdlib" />
@@ -122,6 +127,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-idn" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-normalizer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php80" />
