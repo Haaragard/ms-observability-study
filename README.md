@@ -23,7 +23,7 @@
 
 ### Step 4 (Persistence)
 - [X] Add MySQL into the project
-  - [ ] Add hyperf deps. to use mysql
+  - [X] Add hyperf deps. to use mysql
   - [ ] Add persistence to the posts
 - [ ] Add Redis into the project
 
