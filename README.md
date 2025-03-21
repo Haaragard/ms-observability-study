@@ -24,7 +24,9 @@
 ### Step 4 (Persistence)
 - [X] Add MySQL into the project
   - [X] Add hyperf deps. to use mysql
-  - [ ] Add persistence to the posts
+    - [X] Add persistence to the posts Store
+    - [ ] Add persistence to the posts List
+    - [ ] Add persistence to the posts Show
 - [ ] Add Redis into the project
 
 ### Step 5 (Observability - Dashboards)
