@@ -1,5 +1,5 @@
 {
-    "name": "hyperf/hyperf-skeleton",
+    "name": "haaragard/ms-observability-study",
     "type": "project",
     "keywords": [
         "php",
@@ -9,10 +9,10 @@
         "microservice",
         "middleware"
     ],
-    "description": "A coroutine framework that focuses on hyperspeed and flexible, specifically use for build microservices and middlewares.",
+    "description": "A project using Hyperf to study about observability.",
     "license": "Apache-2.0",
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.3",
         "hyperf/cache": "~3.1.0",
         "hyperf/command": "~3.1.0",
         "hyperf/config": "~3.1.0",
