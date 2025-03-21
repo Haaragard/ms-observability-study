@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Http\Controller;
 
+use Hyperf\HttpServer\Contract\RequestInterface;
+
 class IndexController extends AbstractController
 {
-    public function __invoke(): array
+    public function __invoke(RequestInterface $request): array
     {
-        $user = $this->request->input('user', 'Hyperf');
-        $method = $this->request->getMethod();
+        $user = $request->input('user', 'Hyperf');
+        $method = $request->getMethod();
 
         return [
             'method' => $method,
