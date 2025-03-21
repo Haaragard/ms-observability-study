@@ -14,7 +14,7 @@
 - [ ] Add a `docker-compose up` command to the README.md
 
 ### Step 3 (Build the hyperf project)
-- [ ] Build the hyperf project
+- [X] Build the hyperf project
 - [ ] Add functional basic endpoint
 
 
