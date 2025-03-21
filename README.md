@@ -6,11 +6,11 @@
 - [x] Add a description of the project
 
 ### Step 2 (Add the basic infrastructure)
-- [ ] Add a dockerfile and docker-compose file
-- [ ] Add PHP
-- [ ] Add Composer
-- [ ] Add Swoole
-- [ ] Add XDebug
+- [X] Add a dockerfile and docker-compose file
+- [X] Add PHP
+- [X] Add Composer
+- [X] Add Swoole
+- [X] Add XDebug
 - [ ] Add a `docker-compose up` command to the README.md
 
 ### Step 3 (Build the hyperf project)

@@ -1,0 +1,21 @@
+services:
+  app:
+    container_name: ms-observability-study
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+#    entrypoint: "/bin/bash -c 'composer install && php bin/hyperf.php server:watch'"
+    volumes:
+      - .:/var/www/app
+      - ./docker/php/config/custom_xdebug.ini:/etc/php83/conf.d/99_xdebug.ini
+    ports:
+      - "80:9501"
+    restart: unless-stopped
+    environment:
+      - USER_ID=${UID:-1000}
+      - GROUP_ID=${GID:-1000}
+      - APP_ENV=dev
+      - SCAN_CACHEABLE=false
+      - XDEBUG_MODE=${XDEBUG_MODE:-off}
