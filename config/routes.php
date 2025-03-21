@@ -6,7 +6,7 @@ use App\Infrastructure\Http\Controller\IndexController;
 use App\Infrastructure\Http\Controller\Post\{
     GetController as PostGetController,
     ShowController as PostShowController,
-    StoreController as PostStoreController
+    StorePostController as PostStoreController
 };
 use Hyperf\HttpServer\Router\Router;
 
