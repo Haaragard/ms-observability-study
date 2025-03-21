@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 
-namespace App\Model;
+namespace app\Infrastructure\Persistence\Model;
 
 use Hyperf\DbConnection\Model\Model as BaseModel;
 
