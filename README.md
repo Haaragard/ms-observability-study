@@ -15,7 +15,10 @@
 
 ### Step 3 (Build the hyperf project)
 - [X] Build the hyperf project
-- [ ] Add functional basic endpoint
+- [X] Add functional basic endpoint
+  - [X] GET /posts - Returns a list of posts
+  - [X] GET /posts/{id} - Returns a post by id
+  - [X] POST /posts - Creates a new post
 
 
 ### Step 4 (Persistence)
