@@ -13,9 +13,36 @@ services:
     ports:
       - "80:9501"
     restart: unless-stopped
+    networks:
+      - mysql
+    depends_on:
+      - mysql
     environment:
       - USER_ID=${UID:-1000}
       - GROUP_ID=${GID:-1000}
       - APP_ENV=dev
       - SCAN_CACHEABLE=false
       - XDEBUG_MODE=${XDEBUG_MODE:-off}
+
+  mysql:
+    container_name: mysql-8
+    image: mysql:8.0
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    environment:
+      MYSQL_USER: ${DB_USERNAME:-"app"}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-"app"}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-"root"}
+      MYSQL_DATABASE: ${DB_DATABASE:-"ms-observability-study"}
+    volumes:
+      - mysql:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - mysql
+
+networks:
+  mysql:
+    driver: bridge
+
+volumes:
+  mysql:
