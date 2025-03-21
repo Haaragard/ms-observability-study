@@ -6,7 +6,7 @@ services:
       dockerfile: docker/php/Dockerfile
     extra_hosts:
       - "host.docker.internal:host-gateway"
-#    entrypoint: "/bin/bash -c 'composer install && php bin/hyperf.php server:watch'"
+    entrypoint: "/bin/bash -c 'composer install && php bin/hyperf.php server:watch'"
     volumes:
       - .:/var/www/app
       - ./docker/php/config/custom_xdebug.ini:/etc/php83/conf.d/99_xdebug.ini

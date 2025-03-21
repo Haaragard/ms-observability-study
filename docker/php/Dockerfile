@@ -54,8 +54,8 @@ RUN chown -R appuser:appgroup /var/www/app
 
 USER appuser
 
-#RUN composer install
+RUN composer install
 
-#EXPOSE 9501
+EXPOSE 9501
 
-#ENTRYPOINT ["php", "/var/www/app/bin/hyperf.php", "server:watch"]
+ENTRYPOINT ["php", "/var/www/app/bin/hyperf.php", "server:watch"]
