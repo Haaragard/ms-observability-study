@@ -34,11 +34,6 @@ class StorePostController extends AbstractController
             return $this->response
                 ->json(StorePostResource::toArray($output->post))
                 ->withStatus(Status::CREATED);
-
-        } catch (ValidationException $exception) {
-            return $this->response
-                ->json(['message' => $exception->getMessage()])
-                ->withStatus(Status::UNPROCESSABLE_ENTITY);
         } catch (Throwable $exception) {
             return $this->response
                 ->json(['message' => $exception->getMessage()])
