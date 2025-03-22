@@ -8,7 +8,7 @@ use App\Infrastructure\Http\Controller\AbstractController;
 use Psr\Http\Message\ResponseInterface;
 use Swoole\Http\Status;
 
-class ShowController extends AbstractController
+class StoreShowController extends AbstractController
 {
     public function __invoke(): ResponseInterface
     {

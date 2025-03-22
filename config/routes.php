@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 use App\Infrastructure\Http\Controller\IndexController;
 use App\Infrastructure\Http\Controller\Post\{
-    GetController as PostGetController,
-    ShowController as PostShowController,
+    StoreGetController as PostGetController,
+    StoreShowController as PostShowController,
     StorePostController as PostStoreController
 };
 use Hyperf\HttpServer\Router\Router;
