@@ -7,9 +7,11 @@ namespace App\Infrastructure\Http\Controller\Post;
 use App\Application\UseCase\Post\List\ListPostInputDto;
 use App\Application\UseCase\Post\List\ListPostUseCase;
 use App\Infrastructure\Http\Controller\AbstractController;
+use App\Infrastructure\Http\Request\Post\ListPostRequest;
 use App\Infrastructure\Http\Resource\Post\ListPostResource;
 use Psr\Http\Message\ResponseInterface;
 use Swoole\Http\Status;
+use Throwable;
 
 class ListPostController extends AbstractController
 {
@@ -18,18 +20,22 @@ class ListPostController extends AbstractController
     ) {
     }
 
-    public function __invoke(): ResponseInterface
+    public function __invoke(ListPostRequest $request): ResponseInterface
     {
-        $input = new ListPostInputDto(
-//            page: (int) $this->request->get['page'] ?? 1,
-            page: 1,
-//            perPage: (int) $this->request->get['per_page'] ?? 10
-            perPage: 10
-        );
-        $output = $this->listPostUseCase->execute($input);
+        try {
+            $input = new ListPostInputDto(
+                page: (int)$request->input('page', 1) ?: 1,
+                perPage: (int)$request->input('per_page', 10) ?: 10
+            );
+            $output = $this->listPostUseCase->execute($input);
 
-        return $this->response
-            ->json(ListPostResource::toArray($output->posts))
-            ->withStatus(Status::OK);
+            return $this->response
+                ->json(ListPostResource::toArray($output->posts))
+                ->withStatus(Status::OK);
+        } catch (Throwable $exception) {
+            return $this->response
+                ->json(['message' => $exception->getMessage()])
+                ->withStatus(Status::INTERNAL_SERVER_ERROR);
+        }
     }
 }
