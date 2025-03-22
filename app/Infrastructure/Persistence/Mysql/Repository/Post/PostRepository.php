@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace App\Infrastructure\Persistence\Mysql\Repository\Post;
 
 use App\_Shared\Utils\Carbon;
+use App\_Shared\Utils\Collection;
 use App\Domain\Post\Entity\PostEntity;
 use App\Domain\Post\Entity\PostEntityInterface;
 use App\Infrastructure\Persistence\Model\Model;
 use App\Infrastructure\Persistence\Model\Post;
 use App\Infrastructure\Persistence\Mysql\Repository\BaseRepository;
 use App\Infrastructure\Persistence\Mysql\Repository\Post\Create\CreatePostDto;
+use App\Infrastructure\Persistence\Mysql\Repository\Post\Get\PaginateDto;
 
 class PostRepository extends BaseRepository implements PostRepositoryInterface
 {
@@ -33,6 +35,30 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
             slug: $postModel->slug,
             content: $postModel->content,
             score: $postModel->score ?? 0
+        );
+    }
+
+    public function paginate(PaginateDto $dto): Collection
+    {
+        $query = $this->model::query();
+        $query->offset(($dto->page - 1) * $dto->perPage);
+        $query->limit($dto->perPage);
+
+        $results = $query->get();
+
+        return new Collection(
+            $results->map(
+                fn (Post $post): PostEntityInterface =>
+                    new PostEntity(
+                        id: $post->id,
+                        createdAt: new Carbon($post->created_at),
+                        updatedAt: new Carbon($post->updated_at),
+                        title: $post->title,
+                        slug: $post->slug,
+                        content: $post->content,
+                        score: $post->score ?? 0,
+                    )
+            )
         );
     }
 }
