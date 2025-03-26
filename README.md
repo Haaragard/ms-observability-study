@@ -1,5 +1,9 @@
 # ms-observability-study
 
+This project is a study project to understand how to build a microservice with observability in mind.
+
+---
+
 ## Todos:
 
 ### Step 1 (Start the project)
