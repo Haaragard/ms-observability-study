@@ -50,7 +50,7 @@ docker-compose exec app php ./bin/hyperf.php {command}
 - [X] Add Composer
 - [X] Add Swoole
 - [X] Add XDebug
-- [ ] Add a `docker-compose up` command to the README.md
+- [X] Add a `docker-compose up` command to the README.md
 
 ### Step 3 (Build the hyperf project)
 - [X] Build the hyperf project
@@ -59,13 +59,12 @@ docker-compose exec app php ./bin/hyperf.php {command}
   - [X] GET /posts/{id} - Returns a post by id
   - [X] POST /posts - Creates a new post
 
-
 ### Step 4 (Persistence)
 - [X] Add MySQL into the project
   - [X] Add hyperf deps. to use mysql
     - [X] Add persistence to the posts Store
     - [X] Add persistence to the posts List
-    - [ ] Add persistence to the posts Show
+    - [X] Add persistence to the posts Show
 - [ ] Add Redis into the project
   - [ ] Add cache to the posts List
   - [ ] Add cache to the posts Show
