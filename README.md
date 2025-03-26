@@ -28,6 +28,8 @@
     - [X] Add persistence to the posts List
     - [ ] Add persistence to the posts Show
 - [ ] Add Redis into the project
+  - [ ] Add cache to the posts List
+  - [ ] Add cache to the posts Show
 
 ### Step 5 (Observability - Dashboards)
 - [ ] Add Grafana Dashboards
