@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Http\Controller\Post;
 
+use App\_Shared\Utils\HttpStatus;
 use App\Application\UseCase\Post\Store\StorePostInputDto;
 use App\Application\UseCase\Post\Store\StorePostUseCase;
 use App\Infrastructure\Http\Controller\AbstractController;
 use App\Infrastructure\Http\Request\Post\StorePostRequest;
 use App\Infrastructure\Http\Resource\Post\StorePostResource;
 use Psr\Http\Message\ResponseInterface;
-use Swoole\Http\Status;
 use Throwable;
 
 class StorePostController extends AbstractController
@@ -32,11 +32,11 @@ class StorePostController extends AbstractController
 
             return $this->response
                 ->json(StorePostResource::toArray($output->post))
-                ->withStatus(Status::CREATED);
+                ->withStatus(HttpStatus::CREATED);
         } catch (Throwable $exception) {
             return $this->response
                 ->json(['message' => $exception->getMessage()])
-                ->withStatus(Status::INTERNAL_SERVER_ERROR);
+                ->withStatus(HttpStatus::INTERNAL_SERVER_ERROR);
         }
     }
 }

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Http\Controller\Post;
 
+use App\_Shared\Utils\HttpStatus;
 use App\Application\UseCase\Post\List\ListPostInputDto;
 use App\Application\UseCase\Post\List\ListPostUseCase;
 use App\Infrastructure\Http\Controller\AbstractController;
 use App\Infrastructure\Http\Request\Post\ListPostRequest;
 use App\Infrastructure\Http\Resource\Post\ListPostResource;
 use Psr\Http\Message\ResponseInterface;
-use Swoole\Http\Status;
 use Throwable;
 
 class ListPostController extends AbstractController
@@ -31,11 +31,11 @@ class ListPostController extends AbstractController
 
             return $this->response
                 ->json(ListPostResource::toArray($output->posts))
-                ->withStatus(Status::OK);
+                ->withStatus(HttpStatus::OK);
         } catch (Throwable $exception) {
             return $this->response
                 ->json(['message' => $exception->getMessage()])
-                ->withStatus(Status::INTERNAL_SERVER_ERROR);
+                ->withStatus(HttpStatus::INTERNAL_SERVER_ERROR);
         }
     }
 }
