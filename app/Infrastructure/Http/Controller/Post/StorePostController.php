@@ -9,7 +9,6 @@ use App\Application\UseCase\Post\Store\StorePostUseCase;
 use App\Infrastructure\Http\Controller\AbstractController;
 use App\Infrastructure\Http\Request\Post\StorePostRequest;
 use App\Infrastructure\Http\Resource\Post\StorePostResource;
-use Hyperf\Validation\ValidationException;
 use Psr\Http\Message\ResponseInterface;
 use Swoole\Http\Status;
 use Throwable;
