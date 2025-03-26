@@ -15,4 +15,6 @@ interface PostRepositoryInterface extends BaseRepositoryInterface
     public function create(CreatePostDto $dto): PostEntityInterface;
 
     public function paginate(PaginateDto $dto): Collection;
+
+    public function find(int $id): ?PostEntityInterface;
 }

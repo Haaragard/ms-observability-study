@@ -48,7 +48,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
 
         return new Collection(
             $results->map(
-                fn (Post $post): PostEntityInterface =>
+                static fn (Post $post): PostEntityInterface =>
                     new PostEntity(
                         id: $post->id,
                         createdAt: new Carbon($post->created_at),
@@ -59,6 +59,24 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
                         score: $post->score ?? 0,
                     )
             )
+        );
+    }
+
+    public function find(int $id): ?PostEntityInterface
+    {
+        $postModel = $this->model::find($id);
+        if (is_null($postModel)) {
+            return null;
+        }
+
+        return new PostEntity(
+            id: $postModel->id,
+            createdAt: new Carbon($postModel->created_at),
+            updatedAt: new Carbon($postModel->updated_at),
+            title: $postModel->title,
+            slug: $postModel->slug,
+            content: $postModel->content,
+            score: $postModel->score ?? 0
         );
     }
 }
