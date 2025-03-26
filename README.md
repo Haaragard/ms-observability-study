@@ -4,6 +4,41 @@ This project is a study project to understand how to build a microservice with o
 
 ---
 
+## How to run the project
+
+### Up
+```bash
+docker-compose up -d
+```
+
+### Down
+```bash
+docker-compose down
+```
+
+### Logs
+Use the following command to see the logs of a container:
+- Replace `{container_name}` with the name of the container you want to see the logs, example: `app`, `mysql`, `redis`, etc.
+```bash
+docker-compose logs -f {container_name}
+```
+
+### Access the container
+Use the following command to access the container:
+- Replace `{container_name}` with the name of the container you want to access, example: `app`, `mysql`, `redis`, etc.
+```bash
+docker-compose exec -it {container_name} bash
+```
+
+### Run Hyperf commands
+Use the following command to run a hyperf command:
+- Replace `{command}` with the command you want to run, example: `list`, `route:list`, `migrate`, etc.
+```bash
+docker-compose exec app php ./bin/hyperf.php {command}
+```
+
+---
+
 ## Todos:
 
 ### Step 1 (Start the project)
