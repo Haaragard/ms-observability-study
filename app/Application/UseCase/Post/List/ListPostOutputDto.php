@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Application\UseCase\Post\List;
 
 use App\_Shared\Utils\Collection;
-use App\Domain\Post\Entity\PostEntityInterface;
 
 class ListPostOutputDto
 {

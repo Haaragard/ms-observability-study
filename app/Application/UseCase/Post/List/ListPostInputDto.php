@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Application\UseCase\Post\List;
+declare(strict_types=1);
 
-use App\Domain\Post\Entity\PostEntityInterface;
+namespace App\Application\UseCase\Post\List;
 
 class ListPostInputDto
 {
