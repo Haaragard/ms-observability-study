@@ -4,16 +4,40 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Http\Controller\Post;
 
+use App\Application\Exception\_Shared\BaseBusinessException;
+use App\Application\UseCase\Post\Show\ShowPostInputDto;
+use App\Application\UseCase\Post\Show\ShowPostUseCase;
 use App\Infrastructure\Http\Controller\AbstractController;
+use App\Infrastructure\Http\Resource\Post\ShowPostResource;
 use Psr\Http\Message\ResponseInterface;
 use Swoole\Http\Status;
+use Throwable;
 
 class ShowPostController extends AbstractController
 {
-    public function __invoke(): ResponseInterface
+    public function __construct(
+        private ShowPostUseCase $showPostUseCase,
+    ) {
+    }
+
+    public function __invoke(int $id): ResponseInterface
     {
-        return $this->response
-            ->json([])
-            ->withStatus(Status::OK);
+        try {
+            $showPostInputDto = new ShowPostInputDto(id: $id);
+
+            $output = $this->showPostUseCase->execute($showPostInputDto);
+
+            return $this->response
+                ->json(ShowPostResource::toArray($output->postEntity))
+                ->withStatus(Status::OK);
+        } catch (BaseBusinessException $exception) {
+            return $this->response
+                ->json(['message' => $exception->getMessage()])
+                ->withStatus($exception->getCode());
+        } catch (Throwable $exception) {
+            return $this->response
+                ->json(['message' => $exception->getMessage()])
+                ->withStatus(Status::INTERNAL_SERVER_ERROR);
+        }
     }
 }
