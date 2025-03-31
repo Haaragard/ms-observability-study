@@ -65,9 +65,10 @@ docker-compose exec app php ./bin/hyperf.php {command}
     - [X] Add persistence to the posts Store
     - [X] Add persistence to the posts List
     - [X] Add persistence to the posts Show
-- [ ] Add Redis into the project
-  - [ ] Add cache to the posts List
-  - [ ] Add cache to the posts Show
+- [X] Add Redis into the project
+  - [X] Add cache to the posts List
+  - [X] Add cache to the posts Show
+  - [X] Add cache clear to the posts Store
 
 ### Step 5 (Observability - Dashboards)
 - [ ] Add Grafana Dashboards
