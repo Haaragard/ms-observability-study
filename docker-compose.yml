@@ -15,8 +15,10 @@ services:
     restart: unless-stopped
     networks:
       - mysql
+      - redis
     depends_on:
       - mysql
+      - redis
     environment:
       - USER_ID=${UID:-1000}
       - GROUP_ID=${GID:-1000}
@@ -40,9 +42,25 @@ services:
     networks:
       - mysql
 
+  redis:
+    container_name: redis
+    image: redis:7.2-alpine
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis:/data
+    restart: unless-stopped
+    networks:
+      - redis
+
 networks:
   mysql:
+    driver: bridge
+  redis:
     driver: bridge
 
 volumes:
   mysql:
+    driver: local
+  redis:
+    driver: local

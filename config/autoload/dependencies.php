@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-use App\Domain\Post\Service\PostService;
-use App\Domain\Post\Service\PostServiceInterface;
-use App\Infrastructure\Persistence\Mysql\Repository\Post\PostRepository;
-use App\Infrastructure\Persistence\Mysql\Repository\Post\PostRepositoryInterface;
-
 return [
-    // Application
+    # Application
 
-    // Domain
-    # Post
-    PostServiceInterface::class => PostService::class,
+    # Domain
+    ## Post
+    App\Domain\Post\Service\PostServiceInterface::class => App\Domain\Post\Service\PostService::class,
 
-    // Infrastructure
-    PostRepositoryInterface::class => PostRepository::class,
+    # Infrastructure
+    ## Persistence
+    ### Mysql
+    App\Infrastructure\Persistence\Mysql\Repository\Post\PostRepositoryInterface::class => App\Infrastructure\Persistence\Mysql\Repository\Post\PostRepository::class,
+
+    ## Cache
+    App\Infrastructure\Cache\CacheInterface::class => App\Infrastructure\Cache\Cache::class,
 ];
