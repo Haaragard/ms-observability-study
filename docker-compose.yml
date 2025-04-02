@@ -53,6 +53,17 @@ services:
     networks:
       - redis
 
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:11.6.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana:/var/lib/grafana
+    networks:
+      - mysql
+      - redis
+
 networks:
   mysql:
     driver: bridge
@@ -63,4 +74,6 @@ volumes:
   mysql:
     driver: local
   redis:
+    driver: local
+  grafana:
     driver: local
