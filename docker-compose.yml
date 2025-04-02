@@ -62,7 +62,8 @@ services:
       - grafana:/var/lib/grafana
     networks:
       - mysql
-      - redis
+    depends_on:
+      - mysql
 
 networks:
   mysql:
