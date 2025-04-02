@@ -71,7 +71,10 @@ docker-compose exec app php ./bin/hyperf.php {command}
   - [X] Add cache clear to the posts Store
 
 ### Step 5 (Observability - Dashboards)
-- [ ] Add Grafana Dashboards
+- [X] Add Grafana to the project
+  - Study content
+    - [grafana-fundamentals](https://grafana.com/tutorials/grafana-fundamentals/?pg=tutorials&plcmt=results)
+    - [grafana-for-beginners](https://www.youtube.com/watch?v=TQur9GJHIIQ&list=PLDGkOdUX1Ujo27m6qiTPPCpFHVfyKq9jT&ab_channel=Grafana)
 
 ### Step 6 (Observability - Logs)
 - [ ] Add Grafana Loki
