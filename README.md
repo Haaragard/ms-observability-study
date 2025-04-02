@@ -75,6 +75,12 @@ docker-compose exec app php ./bin/hyperf.php {command}
   - Study content
     - [grafana-fundamentals](https://grafana.com/tutorials/grafana-fundamentals/?pg=tutorials&plcmt=results)
     - [grafana-for-beginners](https://www.youtube.com/watch?v=TQur9GJHIIQ&list=PLDGkOdUX1Ujo27m6qiTPPCpFHVfyKq9jT&ab_channel=Grafana)
+- [ ] Add Grafana dashboards
+  - [ ] Add a dashboard for the app
+  - [X] Add a dashboard for the mysql
+    - [grafana-mysql-plugin](https://grafana.com/docs/grafana/latest/datasources/mysql/)
+    - [created-dashboard](./grafana/dashboards/mysql.json)
+  - [ ] Add a dashboard for the redis
 
 ### Step 6 (Observability - Logs)
 - [ ] Add Grafana Loki
