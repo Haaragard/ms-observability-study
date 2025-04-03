@@ -70,7 +70,12 @@ docker-compose exec app php ./bin/hyperf.php {command}
   - [X] Add cache to the posts Show
   - [X] Add cache clear to the posts Store
 
-### Step 5 (Observability - Dashboards)
+### Step 5 (Observability - Add OpenTelemetry !)
+- [X] Add OpenTelemetry to the project
+  - [opentelemetry](https://opentelemetry.io/)
+  - [getting-started (how-to-with-php)](https://opentelemetry.io/docs/languages/php/getting-started/)
+
+### Step 6 (Observability - Dashboards)
 - [X] Add Grafana to the project
   - Study content
     - [grafana-fundamentals](https://grafana.com/tutorials/grafana-fundamentals/?pg=tutorials&plcmt=results)
@@ -81,16 +86,19 @@ docker-compose exec app php ./bin/hyperf.php {command}
     - [grafana-mysql-plugin](https://grafana.com/docs/grafana/latest/datasources/mysql/)
     - [created-dashboard](./grafana/dashboards/mysql.json)
   - [ ] Add a dashboard for the redis
+    - Not now ~ ~ (Why? - Paid. :sad:)
 
-### Step 6 (Observability - Logs)
+### Step 7 (Observability - Logs)
 - [ ] Add Grafana Loki
+  - Consume logs from the app (opentelemetry)
 - [ ] Integrate into Grafana Dashboards
 
-### Step 7 (Observability - Metrics)
+### Step 8 (Observability - Metrics)
 - [ ] Add Prometheus
+  - Consume metrics from the app (opentelemetry)
 - [ ] Integrate into Grafana Dashboards
 
-### Step 8 (Observability - Tracing)
+### Step 9 (Observability - Tracing)
 - [ ] Add Jaeger (or Zipkin? or other?)
 - [ ] Integrate into Grafana Dashboards
 
