@@ -23,6 +23,18 @@ RUN set -ex \
     && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
     && echo "${TIMEZONE}" > /etc/timezone
 
+# Install dependencies (PECL)
+RUN apk update \
+    && apk add --no-cache autoconf g++ make php-pear php83-dev linux-headers \
+    && apk cache clean \
+    && pecl channel-update pecl.php.net
+
+# Install opentelemetry
+RUN pecl install opentelemetry \
+    && pecl install protobuf
+
+COPY ./docker/php/config/opentelemetry.ini /etc/php83/conf.d/99_opentelemetry.ini
+
 # Install composer
 COPY --from=composer:2.8.4 /usr/bin/composer /usr/bin/composer
 
@@ -42,9 +54,10 @@ WORKDIR /var/www/app
 # Copy all files to the container
 COPY . .
 
-RUN apk add php83-pecl-xdebug
+# Install xdebug
+RUN pecl install xdebug
 
-COPY docker/php/config/custom_xdebug.ini /etc/php83/conf.d/99_xdebug.ini
+COPY ./docker/php/config/custom_xdebug.ini /etc/php83/conf.d/99_xdebug.ini
 
 # Create new user with same user id as host user
 RUN addgroup -S appgroup -g $GROUP_ID \
