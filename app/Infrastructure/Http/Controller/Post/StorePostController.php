@@ -7,20 +7,21 @@ namespace App\Infrastructure\Http\Controller\Post;
 use App\_Shared\Utils\HttpStatus;
 use App\Application\UseCase\Post\Store\StorePostInputDto;
 use App\Application\UseCase\Post\Store\StorePostUseCase;
-use App\Infrastructure\Http\Controller\AbstractController;
 use App\Infrastructure\Http\Request\Post\StorePostRequest;
 use App\Infrastructure\Http\Resource\Post\StorePostResource;
-use Psr\Http\Message\ResponseInterface;
+use Hyperf\HttpServer\Contract\ResponseInterface as HyperfResponseInterface;
+use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 use Throwable;
 
-class StorePostController extends AbstractController
+class StorePostController
 {
     public function __construct(
-        private StorePostUseCase $storePostUseCase
+        private StorePostUseCase $storePostUseCase,
+        private HyperfResponseInterface $response
     ) {
     }
 
-    public function __invoke(StorePostRequest $request): ResponseInterface
+    public function __invoke(StorePostRequest $request): PsrResponseInterface
     {
         try {
             $storePostInputDto = new StorePostInputDto(

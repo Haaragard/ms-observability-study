@@ -7,20 +7,21 @@ namespace App\Infrastructure\Http\Controller\Post;
 use App\_Shared\Utils\HttpStatus;
 use App\Application\UseCase\Post\List\ListPostInputDto;
 use App\Application\UseCase\Post\List\ListPostUseCase;
-use App\Infrastructure\Http\Controller\AbstractController;
 use App\Infrastructure\Http\Request\Post\ListPostRequest;
 use App\Infrastructure\Http\Resource\Post\ListPostResource;
-use Psr\Http\Message\ResponseInterface;
+use Hyperf\HttpServer\Contract\ResponseInterface as HyperfResponseInterface;
+use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 use Throwable;
 
-class ListPostController extends AbstractController
+class ListPostController
 {
     public function __construct(
-        private ListPostUseCase $listPostUseCase
+        private ListPostUseCase $listPostUseCase,
+        private HyperfResponseInterface $response
     ) {
     }
 
-    public function __invoke(ListPostRequest $request): ResponseInterface
+    public function __invoke(ListPostRequest $request): PsrResponseInterface
     {
         try {
             $input = new ListPostInputDto(

@@ -10,9 +10,9 @@ use Psr\Container\ContainerInterface;
 
 abstract class AbstractController
 {
-    #[Inject]
-    protected ContainerInterface $container;
-
-    #[Inject]
-    protected ResponseInterface $response;
+    public function __construct(
+        protected ContainerInterface $container,
+        protected ResponseInterface $response
+    ) {
+    }
 }
